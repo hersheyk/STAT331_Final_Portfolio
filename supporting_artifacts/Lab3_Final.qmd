@@ -31,7 +31,7 @@ library(tidyverse)
 ```
 
 ```{r here, message = FALSE}
-hiphop <- read_csv(here::here("Labs", "Lab 3", "hiphop.csv"))
+hiphop <- read_csv(here::here("supporting_artifacts", "files", "hiphop.csv"))
 dim(hiphop)
 ```
 
