@@ -5,13 +5,14 @@ format: docx
 editor: visual
 ---
 
-I have demonstrated an understanding of learning targets R-1, R-2, DVS-2, DVS-3, WD-2,  and PE-1. I think I have begun to demonstrate an understanding of the learning targets WD-1, WD-3, and DVS-3. I have submitted revisions whenever they were necessary to the best of my ability which I believe demonstrates my commitment to continued learning. I have done more than one Challenge option when given a chance for Challenge #2.
+I have demonstrated an understanding of learning targets WD-1, WD-2, WD-3, which are all in Lab 2. PE-1 is demonstrated in Lab 2, question 3. DVS-4, DVS-5, DVS-6 are shown in Lab three, specifically, question 6. WD-4, WD-5, WD-6 are all demonstrated in Lab 4, question 7. R-1 and R-2 are shown in lab 4 and in following labs. DVS-1, DVS-2, DVS-3 are shown in Lab 5, Section 2.
 
-One goal I\'ve fulfilled, which might seem a given for most people, but can be difficult for me sometimes, is that I have gone to every Stat 331 class. I had a lot of difficulty doing this with classes last quarter and struggled with motivation, but I have gone to every single class, so I am proud of myself.  As a team member, I\'ve grown more comfortable with my classmates and feel no hesitation in texting them if I have a question or answering others\' questions. We call to do work together outside of class sometimes. 
+I have submitted revisions whenever they were necessary, to the best of my ability which I believe demonstrates my commitment to continued learning. I have done more than one Challenge option when given a chance for Challenge #2. Most of my rendered html is colorful, due to my chosen YAML colors. For Lab 5 I did more than what was required, adding a graph in which removes the legend, as William Chase suggested and instead overlays the text over the graph itself. I also added a table of contents to the lab. I learned the pivot_longer() function before we went over it in class.
+
+One goal I've fulfilled, which might seem a given for most people, but can be difficult for me sometimes, is that I have gone to all but one Stat 331 class. I had a lot of difficulty doing this with classes last quarter and struggled with motivation, but I have gone to nearly every class, so I am proud of myself.  As a team member, I've grown more comfortable with my classmates and feel no hesitation in texting them if I have a question or answering others' questions. We call to do work together outside of class, typically to work on labs.  I have checked others' code for bugs and they have checked mine. Often it is a very small syntax error that caused the issues. Other times we have had to turn to Google or the R database to learn more about a particular function.
 
 Regarding the timelines for projects, I often submit them after canvas due dates but before grading deadlines. They usually are only a couple of hours late. I appreciate the soft deadlines as I can better organize my time concerning my other classwork, which have stricter deadlines. I make sure to review and read the preview coursework before class. While sometimes it is after 8 am, it is often submitted before 12. However, I believe I submitted two of the Preview Activities relatively late.
 
-Thus far, I deserve an A minus because while I am doing well independently, I should be doing better regarding my peer review deadlines and putting more effort into submitting assignments precisely on time.
+Thus far, I deserve an A minus because while I am doing well independently, I should be doing better regarding putting more effort into submitting assignments precisely on time.
 
 \
-
