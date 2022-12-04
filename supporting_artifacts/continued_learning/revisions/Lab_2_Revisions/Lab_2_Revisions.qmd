@@ -32,23 +32,20 @@ I felt that Lab 2 had one of the most revisions of my labs, and involved the gre
 
     *Please revise this plot to reflect the changes you made earlier. **G***
 
-```{=html}
 <!-- -->
-```
+
 11. *I don't see the x and y variables swapped in your plot. **G***
 
 ## Revision Work Through:
 
 5.  For question number 5, I had believed that alpha counted as an aesthetic and should be placed inside the mapping argument, however I failed to recognize that it was a hard-coded value, and that they would not be considered an aesthetic. I went back in and moved alpha to outside the aesthetic for all the rest.
 
-```{=html}
 <!-- -->
-```
+
 8.  For number 8, it was more a misunderstanding of what the question was asking me. I thought the side-by-side was a reference to the faceted graphs. I did not know that it meant all graphed together, I thought I had to build off of the last question. The side-by-side box plots were far easier to compare than the faceted version.
 
-```{=html}
 <!-- -->
-```
+
 10. For number 10, it was more of a continued misunderstanding regarding the x and y axes, so once I figured out 8, it was easy to fix 10.
 
 11. For 11, I was more confused regarding the x and y axes switching because in the faceted plots there were so many graphs I didn't understand what the end result was supposed to be.

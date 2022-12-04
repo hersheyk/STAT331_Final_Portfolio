@@ -40,8 +40,6 @@ Preview Activity Cereal
 
 ### Demonstration of Continued Learning
 
-Continued Learning Info
-
 #### *Revising My Thinking*
 
 Lab 2 Revisions
@@ -52,14 +50,14 @@ Lab 7 Revisions
 
 Lab 5
 
-Challenge
+Challenge 2
 
 Challenge
 
 ### Growth as a Team Member
 
-Text Convo 1
+text_convo_excerpt_1
 
-Text Convo 2
+text_convo_excerpt_2
 
 Peer Code Review for Lab 4

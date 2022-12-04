@@ -1,0 +1,30 @@
+---
+title: "Extending My Thinking TLDR"
+author: "Harshini Karthikeyan"
+date: "December 4, 2022"
+mainfont: "Times New Roman"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show code"
+    monobackgroundcolor: lightsteelblue
+    backgroundcolor: whitesmoke
+    fontcolor: steelblue
+    theme: zephyr
+    self-contained: true
+execute: 
+  warning: false
+  message: false
+editor: visual
+---
+
+Challenge 2: I completed both medium and spicy challenge options 
+
+Challenge 4: I plotted dual axes to show more information
+
+Lab 5: I annotated the legend directly onto the plot
+
+Challenge 9: I consistently used YAML to develop a clean layout that I liked, this was the final variation of it.
+
+\
+

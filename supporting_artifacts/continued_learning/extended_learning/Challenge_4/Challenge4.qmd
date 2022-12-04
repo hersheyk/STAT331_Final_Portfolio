@@ -1,0 +1,122 @@
+---
+title: "Challenge 4"
+author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show code"
+    monobackgroundcolor: lightsteelblue
+    backgroundcolor: whitesmoke
+    fontcolor: steelblue
+    self-contained: true
+execute: 
+  warning: false
+  message: false
+editor: visual
+theme: zephyr
+---
+
+# Challenge 4
+
+#### Set Up
+
+```{r setup}
+library(tidyverse)
+avocado <- 
+  read_csv(here::here("supporting_artifacts",
+                                    "Labs", "Lab_4_Final",
+                        "avocado.csv"))
+```
+
+#### New Data Sets
+
+```{r new datasets}
+cali_cities <- data.frame(region = c("LosAngeles",
+                                    "SanDiego", 
+                     "Sacramento", "SanFrancisco"))
+cali_cities <- avocado |> 
+  semi_join(cali_cities, by = "region")
+
+# Source : http://www.laalmanac.com/economy/ec37.php
+#from 2013 to 2018
+LosAngeles <- 
+  c(502750, 522520, 
+    577690, 588140)
+
+SanDiego <- 
+  c(530000, 568000,
+    605000, 618500)
+
+# Source: https://www.bayareamarketreports.com/trend/3-recessions-2-bubbles-and-a-baby
+SanFrancisco <- 
+  c(1225000, 1280000,
+    1362500, 1550000)
+
+# Source: https://www.zillow.com/home-values/20288/sacramento-ca/
+Sacramento <- 
+  c(256904, 284337,
+    312763, 330326)
+
+year <- 
+  c(2015, 2016, 2017, 2018)
+
+```
+
+#### Analyzing and Reshaping Data
+
+```{r}
+cali_cities <- cali_cities |> 
+  group_by(year, region) |>
+  summarise(AveragePrice = mean(AveragePrice),
+            TotalVolume = mean(`Total Volume`),
+            .groups = "rowwise") 
+```
+
+```{r}
+cali_house <- 
+  data.frame(LosAngeles, SanDiego, 
+                      SanFrancisco, Sacramento, year) |> 
+  pivot_longer(cols = c(LosAngeles, SanDiego, 
+                      SanFrancisco, Sacramento), 
+               names_to = "region", values_to = "House_Price")
+
+cali_millennial <- 
+  full_join(cali_cities, cali_house,
+                            by = c("region", "year")) 
+
+```
+
+#### Graph of Data
+
+```{r}
+# Source: https://www.tutorialspoint.com/how-to-change-the-color-of-x-axis-label-using-ggplot2-in-r
+# to change axis color
+coeff <- 0.000001
+ggplot(data = cali_millennial, mapping = aes(x = year)) +
+  geom_line(mapping = aes( y = House_Price),
+            color = "purple") +
+  geom_line(mapping = aes( y = AveragePrice / coeff),
+            color = "blue" ) +
+    geom_line(mapping = aes( y = TotalVolume),
+            color = "dark green" ) +
+  scale_y_continuous( name = "House Price", 
+                      sec.axis = sec_axis(~.*coeff,
+                                          name = "Average Price")) +
+  theme(axis.title.y.right = element_text(colour="red"), 
+        axis.text.y.right = element_text(colour="red")) +
+  facet_wrap(vars(region))
+```
+
+As the data shows, the change in avocado prices is not consistently greater than the change in median house prices from 2015 to 2018. When scaled to match house prices the change in avocado prices the change in house prices at a more steady rate. In the locations where the house prices were higher such as Sacramento and San Francisco, the total amount of avocados bought were actually well below other areas such as Los Angeles where the median house prices were actually lower. Although, without accounting for population we cannot be certain how significant this is.
+
+## Revisions
+
+I made it so there is no output or message shown from the set-up code chunk as this will provide a cleaner report.
+
+This was gone over in Lab 4 revisions as well. I changed the method of creating the cali_cities data set to one that included the semi_join function instead of filtering a vector.
+
+I changed the color of the average price axis to make it more clear what I was attempting to show.
+
+I added more descriptive headers to make the html formatting more clear.

@@ -1,0 +1,55 @@
+---
+title: "Challenge 2"
+author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show code"
+    monobackgroundcolor: "#f0faf8"
+    backgroundcolor: "#c7e3eb"
+    fontcolor: "#046a75"
+    self-contained: true
+execute: 
+  warning: false
+  message: false
+editor: visual
+---
+
+## Set Up
+
+```{r setup}
+library(tidyverse)
+library(ggridges)
+library(here)
+ surveys <- read_csv(here::here("supporting_artifacts",                               "Labs", "Lab_2_Final",
+                               "surveys.csv"))
+```
+
+## Medium - Ridge Plots
+
+```{r ridgeplots}
+testplot <- ggplot(data = surveys 
+                 ) +
+
+  geom_density_ridges(mapping = aes(x = weight,
+                                    y = species, ),
+               color = "light blue"
+                           ) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_x_continuous(expand = c(0.01, 0)) +
+  labs( x = "Weight of species in lb", 
+        y = "Length of hindfoot in inches" )
+testplot
+```
+
+## Spicy - Color Themes
+
+```{r color themes}
+cdPalette_bluegreen <- c("#999999", "#82b590", "#9ecbe6", "#92e0de", "#046a75", "#28826a", "#509da1", "#283d82")
+  
+ggplot(surveys, aes(x = weight, y = species, color = genus)) +
+geom_boxplot() +
+scale_color_manual(values = cdPalette_bluegreen)
+```

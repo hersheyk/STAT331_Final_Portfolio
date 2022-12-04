@@ -1,0 +1,171 @@
+---
+title: "Challenge 9"
+author: "Harshini Karthikeyan"
+date: "December 4, 2022"
+mainfont: "Times New Roman"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show code"
+    monobackgroundcolor: lightsteelblue
+    backgroundcolor: whitesmoke
+    fontcolor: steelblue
+    number-sections: true
+    toc: true
+    theme: zephyr
+    self-contained: true
+execute: 
+  warning: false
+  message: false
+editor: visual
+---
+
+## Data and Set Up
+
+```{r setup}
+#| message: false
+#| warning: false
+library(tidyverse)
+library(dplyr)
+library(kableExtra)
+library(DT)
+a_names_data <- read_csv(here::here("supporting_artifacts",
+                                    "Labs", "Lab_9_Final",
+                                    "StateNames_A.csv"))
+```
+
+### Data
+
+```{r}
+#| warning: false
+# source: https://rstudio.github.io/DT/
+datatable(a_names_data, class = "display",
+    callback = JS("return table;"), filter = "top",
+    escape = TRUE,
+    style = "auto",
+    selection = "multiple", extensions = list(),
+    editable = FALSE)
+```
+
+## Plot
+
+Removed excess grid lines, chose colors, chose fonts, and moved plot title, as well as added a caption.
+
+```{r}
+allison_f <- a_names_data |>
+  filter(Gender == 'F') |>
+  pivot_wider(names_from = Gender, 
+              values_from = Count) |>
+  mutate(F = replace_na(F, 0)) |>
+  filter(Name == 'Allison') |>
+  group_by(Year) |>
+  summarize(F = sum(F), .groups = 'rowwise') |>
+  distinct()
+
+ggplot(data = allison_f, aes(x = Year, y = F)) +
+  geom_line(color = 'darkgreen') +
+  theme( plot.title.position = "plot",
+         plot.title = element_text(vjust = 1,
+                                   face = "italic",
+                                   family = "serif"),
+         plot.subtitle = element_text(family = 'serif',
+                                      face = 'italic'), 
+         axis.line = element_line(color = 'lightgray',
+                                  linewidth =  1,
+                                  linetype = 'solid'),
+                  panel.grid.major = element_blank()
+         ) +
+  labs( title = "Number of babies named Allison over Time",
+        subtitle = 'in the US',
+        x = " ", y = " " ) +
+  scale_x_continuous(breaks = seq(1997, 2015, 2)) +
+  scale_y_continuous(breaks = seq(5000, 8000, 500))
+```
+
+## Allison Table
+
+```{r}
+x <- a_names_data |>   
+  pivot_wider(names_from = Gender, 
+              values_from = Count) |>
+  mutate(across(.cols = c(F, M),
+                ~ (replace_na(., 0)))) |>
+  filter(Name == 'Allison') |>
+  group_by(State) |>
+  summarize( F = sum(F), M = sum(M), .groups = "rowwise") |>
+  distinct()
+
+knitr::kable(x, col.names = c('State', 'Female born babies named Allison', 'Male born babies named Allison'), 'pipe', align = 'lccr')
+```
+
+Filtering for female sex only and creating new data set for graphing.
+
+```{r}
+allison_f <- a_names_data |>
+  filter(Gender == 'F') |>
+  pivot_wider(names_from = Gender, 
+              values_from = Count) |>
+  mutate(F = replace_na(F, 0)) |>
+  filter(Name == 'Allison') |>
+  group_by(Year) |>
+  summarize(F = sum(F), .groups = 'rowwise') |>
+  distinct()
+
+knitr::kable(allison_f, col.names = c('Year', 'Number of Babies named Allison'), 'pipe', align = 'lc')
+```
+
+### Spelling by State
+
+```{r}
+al <- a_names_data |>
+  filter(Name == c('Allan', 'Alan', 'Allen'))
+
+al_year <- al |>
+  group_by(Year, Name) |>
+  summarize(Count = sum(Count),
+            .groups = 'rowwise') 
+kable(al_year, format = 'html',
+      col.names = c('Year', 'Name',
+                    'Number of babies named as such'
+                                    ),
+              align = 'lcl') |>
+  kable_styling('striped') |>
+  kable_classic(html_font = 'Arial')
+```
+
+```{r}
+al_state <- 
+  a_names_data |>
+  pivot_wider(names_from = Gender, 
+              values_from = Count) |>
+  pivot_wider(names_from = Name, 
+              values_from = M) |> 
+  filter(Year == 2000, (State == 'PA'|State == 'CA')) |>
+  select(State, Allan, Alan, Allen) |>
+  group_by(State)|>
+  summarise(across(.cols = c(Allan, Alan, Allen), 
+                   ~sum(., na.rm = TRUE)),
+            .groups ='rowwise')
+knitr::kable(al_state,
+                               col.names = c('State',
+                                     'Babies named Allan',
+                                     'Babies named Alan',
+                                     'Babies named Allen'),
+                         'pipe',
+             align = 'lllll', )
+
+```
+
+```{r}
+al_state_prop <- al_state |> 
+  mutate(Tot = (Allan + Alan + Allen),
+         across(.cols = c(Allan, Alan, Allen, Tot),
+                .fns = ~ format(round((./Tot), 3
+                                      ), nsmall = 3)))
+knitr::kable(al_state_prop,
+             col.names = c('State',
+                           'Proportion of Babies born named Allan',
+                           'Proportion of Babies born, named Alan',
+                           'Proportion of Babies born, named Allen',
+                           'Total'), 'pipe')
+```

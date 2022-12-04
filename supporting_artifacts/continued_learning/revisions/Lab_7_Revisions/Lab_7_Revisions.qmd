@@ -1,0 +1,31 @@
+---
+title: "Lab 7 Revisions"
+author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
+format:
+  html:
+    self-contained: true
+execute: 
+  warning: false
+  message: false
+editor: visual
+---
+
+## Revision Feedback
+
+*Section One, Task 1: Do you need to make a new column of the number of missing observations or do you need to summarize existing columns?*
+
+***G***
+
+*Section Two, Task 6: Do you need to use quoted variable names for your function?*
+
+***G***
+
+## Revision Work Through:
+
+In Task 1 of Section One I was performing an unnecessary side step by creating a new column before summarizing to produce the summary graph when I could have directly summarized the data.
+
+In Task 2 of Section One I connected the data points in the graph using geom_line() which was not the most accurate portrayal of the data, therefore I switched it to geom_point().
+
+In Task 5 and 6 of Section Two, I forgot to add the two {{}} brackets around the vector containing the column names, in the function, so that my column names would not need to be in quotations.
