@@ -1,6 +1,8 @@
 ---
 title: "Final Grade Reflection"
 author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
 format: docx
 editor: visual
 ---
@@ -9,7 +11,7 @@ I believe I deserve an A for this class because I have completed all the assignm
 
 ### Working with Data
 
-**WD-1:** Lab 4 second intro code chunk(labeled \'here\') 
+**WD-1:** Lab 4 second intro code chunk(labeled 'here') 
 
 **WD-2:** Lab 3 Question 6(code chunk 6: demographics)
 
@@ -23,13 +25,13 @@ I believe I deserve an A for this class because I have completed all the assignm
 
 **WD-7**: 
 
-**Pivot wider:** Lab 9 code chunk 2: \"summarize\"
+**Pivot wider:** Lab 9 code chunk 2: "summarize"
 
 **Pivot longer:** Preview Activity Cereal, code chunk 1
 
 ### Reproducibility
 
-**R-1**: Lab 9, yaml, code chunk: set up. It is in an r project labeled \"STAT331_Final_Portfolio\".
+**R-1**: Lab 9, yaml, code chunk: set up. It is in an r project labeled "STAT331_Final_Portfolio".
 
 **R-2:** Lab 2 numbers 7 & 8; it is actually shown throughout as it is formatting, but two examples are those questions and the sections surrounding them. 
 
