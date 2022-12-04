@@ -1,7 +1,7 @@
 ---
 title: "Lab 5"
 author: "Harshini Karthikeyan"
-date: "October 24, 2022"
+date: "December 3, 2022"
 mainfont: "Times New Roman"
 format: 
   html:
@@ -12,6 +12,10 @@ format:
     fontcolor: steelblue
     toc: true
     theme: zephyr
+    self-contained: true
+execute: 
+  warning: false
+  message: false
 editor: visual
 ---
 
@@ -23,7 +27,9 @@ Loaded packages and read in the data
 library(tidyverse)
 library(here)
 library(lubridate)
-surveys <- read_csv(here::here("Labs", "Lab 2", "surveys.csv"))
+surveys <- read_csv(here::here("supporting_artifacts",
+                               "Labs", "Lab_2_Final",
+                               "surveys.csv"))
 ```
 
 ## Revisiting Lab 2

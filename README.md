@@ -16,7 +16,7 @@ Lightning Round
 
 ### Demonstration of Learning Targets
 
-#### Labs
+#### *Labs*
 
 Lab 2
 
@@ -30,23 +30,25 @@ Lab 9
 
 -   Challenge 9
 
-#### Labs
+#### *Activities*
 
 Practice Activity College
+
+Practice Activity Military
 
 Preview Activity Cereal
 
 ### Demonstration of Continued Learning
 
-Lab 5
+Continued Learning Info
 
-#### Revising My Thinking
+#### *Revising My Thinking*
 
 Lab 2 Revisions
 
 Lab 7 Revisions
 
-#### Extending My Thinking
+#### *Extending My Thinking*
 
 Lab 5
 
