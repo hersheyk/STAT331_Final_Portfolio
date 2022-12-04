@@ -1,0 +1,11 @@
+---
+title: "Lightning Round Essays"
+format: html
+editor: visual
+---
+
+1.  If Caleb Jenson doesn't earn an A, then nobody should because Caleb was always on top of things, was always willing to help me better understand topics, and worked through my code step-by-step with me even when I was struggling with something as simple as a minor spelling issue.
+2.  The coursework was the most difficult aspect of class this quarter because it was tough for me to focus and read through the theoretical aspects.
+3.  The labs were the easiest part of the course for me, because I prefer hands-on work, and there was much less stress as I understood I would receive the opportunity to revise.
+4.  The creative aspect was the most interesting, because I loved finding new ways to make my HTML output more put together and improve the layout, especially using YAML.
+5.  I would tell a student new to STAT 331 to take their time making sure they understand every concept and not to worry if they feel they are behind; just keep putting in thorough work because I didn't feel I understood the coursework nearly as much as my group mates until possibly as late in the quarter as Week 5.

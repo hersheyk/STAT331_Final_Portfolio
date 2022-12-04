@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Harshini Karthikeyan">
+
+<title>Lab 2 Revisions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Lab_2_Revisions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Lab_2_Revisions_files/libs/quarto-html/quarto.js"></script>
+<script src="Lab_2_Revisions_files/libs/quarto-html/popper.min.js"></script>
+<script src="Lab_2_Revisions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Lab_2_Revisions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Lab_2_Revisions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Lab_2_Revisions_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Lab_2_Revisions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Lab_2_Revisions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Lab_2_Revisions_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lab 2 Revisions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Harshini Karthikeyan </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<p>I felt that Lab 2 had one of the most revisions of my labs, and involved the greatest amount of reworking.</p>
+<section id="revision-feedback" class="level2">
+<h2 class="anchored" data-anchor-id="revision-feedback">Revision Feedback</h2>
+<section id="scatterplot" class="level3">
+<h3 class="anchored" data-anchor-id="scatterplot">Scatterplot</h3>
+<ol start="5" type="1">
+<li>Careful! Only variables go inside aes()! Hard coded values like alpha = 0.1 go outside because they are not variables.</li>
+</ol>
+<p>G</p>
+</section>
+<section id="boxplots-density-ridges" class="level3">
+<h3 class="anchored" data-anchor-id="boxplots-density-ridges">Boxplots &amp; Density Ridges</h3>
+<ol start="8" type="1">
+<li><p>Your boxplots should only have two variables, weight and species. The jittered points should be on top of the boxplots.</p>
+<p>You’ve plotted a scatterplot on top of boxplots, which is not the intention of the plot.</p></li>
+</ol>
+<p>G</p>
+</section>
+<section id="customization" class="level3">
+<h3 class="anchored" data-anchor-id="customization">Customization</h3>
+<ol start="10" type="1">
+<li><p>What are these species of???</p>
+<p>Please revise this plot to reflect the changes you made earlier.</p></li>
+</ol>
+<p>G</p>
+<ol start="11" type="1">
+<li>I don’t see the x and y variables swapped in your plot.</li>
+</ol>
+<p>G</p>
+</section>
+</section>
+<section id="revision-work-through" class="level2">
+<h2 class="anchored" data-anchor-id="revision-work-through">Revision Work Through:</h2>
+<p>For question number 5, I had believed that alpha counted as an aesthetic and should be placed inside the mapping argument, however I failed to recognize that it was a hard-coded value, and that they would not be considered an aesthetic. I went back in and moved alpha to outside the aesthetic for all the rest.</p>
+<p>For number 8, it was more a misunderstanding of what the question was asking me. I thought the side-by-side was a reference to the faceted graphs. I did not know that it meant all graphed together, I thought I had to build off of the last question. The side-by-side box plots were far easier to compare than the faceted version.</p>
+<p>For number 10, it was more of a continued misunderstanding regarding the x and y axes, so once I figured out 8, it was easy to fix 10.</p>
+<p>For 11, I was more confused regarding the x and y axes switching because in the faceted plots there were so many graphs I didn’t understand what the end result was supposed to be.</p>
+<p>Additionally, I thought it could be useful to store the graph in “testplot” for any future needs, but it only created extra lines of code so I was sure to delete those.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,48 @@
+---
+title: "Lab 2 Revisions"
+author: "Harshini Karthikeyan"
+format: html
+editor: visual
+---
+
+I felt that Lab 2 had one of the most revisions of my labs, and involved the greatest amount of reworking.
+
+## Revision Feedback
+
+### Scatterplot
+
+5.  Careful! Only variables go inside aes()! Hard coded values like alpha = 0.1 go outside because they are not variables.
+
+G
+
+### Boxplots & Density Ridges
+
+8.  Your boxplots should only have two variables, weight and species. The jittered points should be on top of the boxplots.
+
+    You've plotted a scatterplot on top of boxplots, which is not the intention of the plot.
+
+G
+
+### Customization
+
+10. What are these species of???
+
+    Please revise this plot to reflect the changes you made earlier.
+
+G
+
+11. I don't see the x and y variables swapped in your plot.
+
+G
+
+## Revision Work Through:
+
+For question number 5, I had believed that alpha counted as an aesthetic and should be placed inside the mapping argument, however I failed to recognize that it was a hard-coded value, and that they would not be considered an aesthetic. I went back in and moved alpha to outside the aesthetic for all the rest.
+
+For number 8, it was more a misunderstanding of what the question was asking me. I thought the side-by-side was a reference to the faceted graphs. I did not know that it meant all graphed together, I thought I had to build off of the last question. The side-by-side box plots were far easier to compare than the faceted version.
+
+For number 10, it was more of a continued misunderstanding regarding the x and y axes, so once I figured out 8, it was easy to fix 10.
+
+For 11, I was more confused regarding the x and y axes switching because in the faceted plots there were so many graphs I didn't understand what the end result was supposed to be.
+
+Additionally, I thought it could be useful to store the graph in "testplot" for any future needs, but it only created extra lines of code so I was sure to delete those.

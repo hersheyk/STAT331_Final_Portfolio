@@ -1,0 +1,271 @@
+---
+title: "Lab 4"
+author: "Harshini Karthikeyan"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show code"
+    monobackgroundcolor: lightsteelblue
+    backgroundcolor: whitesmoke
+    fontcolor: steelblue
+    self-contained: true
+editor: visual
+theme: zephyr
+---
+
+# Lab 4
+
+## Introduction and Set-up.
+
+```{r setup, message = FALSE}
+library(tidyverse)
+library(scales)
+```
+
+```{r here, message = FALSE}
+avocado <- read_csv(here::here("supporting_artifacts", "files", "avocado.csv"))
+```
+
+1.  The data set contains the avocado prices for the years 2013 to 2018. It includes the specific avocado sizes as well as how many were sold, both of each type and overall. It shows the region in which the avocados were sold as well as the specific date of each observation.
+
+#### About Data
+
+```{r learn about data, message = FALSE}
+str(avocado)
+dim(avocado)
+```
+
+#### Creating Region Data Sets:
+
+```{r region datasets}
+region_data <- 
+  data.frame(region = c("California", "Midsouth", "Northeast",
+                        "SouthCentral", "Southeast", "Plains",
+                        "GreatLakes", "GrandRapids",
+                        "NorthernNewEngland", "SouthCarolina",
+                        "West" ))
+
+state_data <- 
+  data.frame(region = c("California", "NewYork", 
+                        "South Carolina"))
+
+```
+
+#### Creating Subset Data Sets
+
+```{r create subset datasets}
+avocado <- avocado |> filter(region != "TotalUS")
+
+avocado_region <- avocado |> semi_join( y = region_data, 
+                                        by = "region")
+
+
+avocado_state <- avocado |> semi_join( y = state_data, 
+                                       by = "region")
+
+
+avocado_metro <- avocado |> 
+  anti_join( y = state_data,
+             by = "region") |>
+  anti_join( y = region_data,
+             by = "region")
+
+```
+
+## Exercises
+
+#### 
+
+**3.** Which major region sold the most organic, small Hass avocados in 2017?
+
+```{r 3}
+avocado_region|> 
+  filter(year == "2017", type == "organic") |>
+  group_by(region)|> summarise(small = sum(`Small Bags`)) |>
+  slice_max(order_by = small, n = 1 )
+```
+
+Northeast is the region that sold the most small, organic, Hass avocados in 2017 with 7,549,951 bags sold.
+
+#### 
+
+**4.** Use the `separate()` function to split the `Date` variable into year, month, and day. In which month is the highest volume of avocado sales?
+
+```{r 4}
+avocado_date <- avocado_region |> 
+  separate(col = Date, 
+           into = c(NA, "Month", "Day")) 
+
+avocado_date |>
+  group_by(Month) |> 
+  summarise(mean = mean(`Total Volume`)) |>
+  slice_max(mean, n = 1)
+
+```
+
+February is the month in which the most total avocados are typically sold, with an average of 1,942,088 avocados sold.
+
+#### 
+
+**5.** Which metro area regions sold the most total avocados? Plot side-by-side boxplots of total volume for only the five regions with the highest averages for the `Total Volume` variable.
+
+```{r 5 1}
+highest_avgs <- 
+  avocado_metro |> 
+  group_by(region) |> 
+  summarise(mean_TV = mean(`Total Volume`)) |>
+  slice_max(mean_TV, n = 5)
+
+highest_avgs <- avocado_metro |> 
+  semi_join(highest_avgs, by = "region")
+
+```
+
+```{r 5 2}
+cdPalette_bluegreen <- c("#999999", "#82b590",
+                         "#9ecbe6", "#92e0de", 
+                         "#046a75") 
+cdPalette_outer <- c("black", "dark green", 
+                     "dark blue", "#509da1",
+                     "navy blue")
+
+ggplot(data = highest_avgs, 
+       mapping = aes( y = region, 
+                      x = `Total Volume`)) +
+  geom_boxplot(fill = cdPalette_bluegreen, 
+               color = cdPalette_outer) +
+  labs( y = "Metropolitan regions in the United States", 
+        x = "Total volume of avocados sold", 
+        title = "The Five Metropolitan Areas in the US
+        that Sold the Most Avocados") 
+```
+
+DallasFtWorth, PhoenixTucson, Houston, LosAngeles and WestTexNewMexico, sold the most total avocados.
+
+## Reshaping
+
+#### 6. In which regions is the price of organic versus conventional avocados most different? Support your answer with a few summary statistics and a visualization.
+
+```{r 6 1}
+cal_cities <- data.frame(region = c("LosAngeles",
+                                    "SanDiego", 
+                     "Sacramento", "SanFrancisco"))
+cal_cities <- avocado_metro |> 
+  semi_join(cal_cities, by = "region")
+
+```
+
+```{r 6 2}
+cal_price_diff <- 
+  cal_cities |> 
+  group_by(region, type) |>
+  summarise(mean_price = mean(AveragePrice),
+            .groups = "rowwise") |>
+  pivot_wider(names_from = type, 
+              values_from = mean_price) |> 
+  mutate(price_diff = abs(conventional - organic))
+
+cal_price_diff
+
+cal_price_diff|> slice_max(price_diff, n = 1)
+
+cdPalette_bluepurple <- c("dark blue",
+                         "blue", "purple",
+                         "black") 
+
+ggplot(data = cal_price_diff, 
+        mapping = aes(x = region,
+                      y = price_diff)) +
+  geom_point(color = cdPalette_bluepurple) +
+  labs( x = "Regions in California", 
+        y = "Absolute difference in price 
+        between conventional and organic avocados", 
+        title = "Average of price difference for avocados sold,
+        compared to Region")
+```
+
+San Francisco is the Californian region which as the greatest difference in mean price for organic versus conventional avocados. As shown by the graph, the table, and the slice_max function.
+
+#### 7. Recreate the plot.
+
+The plot is shown below. The fill order, and therefore the colors are flipped, but the result is the same otherwise.
+
+```{r 7 1}
+cal_prop <- cal_cities |> 
+  select(region, type, `4046`, 
+         `4225`,  `4770`
+         ) |> 
+  group_by(region, type
+           )|>
+  summarise(small = `4046`, 
+            large = `4225`, 
+            extra_large = `4770`, 
+            .groups = "rowwise"
+            ) |>
+  mutate(total = (small + large + extra_large), 
+         small = (small / total),
+         large = (large / total),
+         extra_large = (extra_large / total)
+         ) |>
+  pivot_longer(cols = c("small", "large", 
+                        "extra_large"), 
+               names_to = "Avocado_Size", 
+               values_to = "Proportion_of_Total")
+```
+
+```{r 7 2}
+#Source:
+# https://r-graph-gallery.com/48-grouped-barplot-with-ggplot2.html 
+# used for y, and stat arguments
+# https://stackoverflow.com/questions/27433798/how-can-i-change-the-y-axis-figures-into-percentages-in-a-barplot
+# used ofr scale_y_continuous
+
+ggplot(data = cal_prop, 
+       mapping = aes(x = region, 
+                     fill = Avocado_Size,
+                     y = Proportion_of_Total )) +
+  geom_bar(stat = "identity") +
+  facet_wrap(vars(type)) + 
+  scale_y_continuous(labels = function(x) paste0(round(x/169,
+                                                       3)),
+                     breaks = seq(0, 169, 42.25)) +
+  labs( x = "Region of CA", 
+        y = "Proportion of Mean Avocados Sold", 
+        fill = "Avocado Size") 
+```
+
+# Revisions
+
+#### Set-Up/Formatting:
+
+For the first two code chunks I added in "message = FALSE" to remove the message. I organized the code chunks better by titling each code chunk with text above it.
+
+#### Creating region data sets:
+
+I misunderstood and had thought that metro and cities were required to be two different data sets and then made an extra data set that I never even used. So I have now fixed that and only used an anti_join.
+
+I also deleted the Total_Us data frame and removed TotalUS from my data using filter() instead of anti_join(). I think I used that previously because I had emphasized using only those new functions we had learned and over-complicated it.
+
+I made a different data set for the three states in the data set as they are neither cities nor major regions.
+
+I removed the "(#\|output:FALSE)" entirely as it was no longer necessary
+
+#### Creating subset data sets:
+
+This was more of an error due to the fact that I had previously thought that an 'x =' argument was necessary, but with the pipeline it isn't. I had gotten errors. Not knowing what was wrong, I had separated them into two lines of code. The pipeline with the anti_join and semi_join functions has been fixed now.
+
+#### Questions
+
+3.  For this one I didn't properly read the question and notice the type specification of organic. I also failed to recognize that there were multiple sales record for each year. I created a summary table that more accurately represents what the question was asking for now.
+
+<!-- -->
+
+5.  This was a simpler fix. I had not realized the "==" was detrimental with a vector of columns, but I will not use it again. The filtering join also made it so I didn't need to type out the names.
+
+    a.  I tried a different graph title.
+
+6.  Another easier fix, same issue as stated in number 5.
+
+    a.  For the .groups argument, I received a message that said I would be able to fix an issue due to summarizing after grouping by using either the .groups argument or the group_by function. I didn't want to use the group_by function twice in the pipeline, so I looked up the summarize function in R's help section.
+
+7.  I changed out the columns names, so the data represented the number of avocados sold and not the bags. My x and y axes labels were also flipped for some reason, but I changed those to be correct. I used the scale_y\_continuous function to make the y axis proportions.

@@ -1,0 +1,195 @@
+---
+title: "Lab 9"
+author: "Harshini Karthikeyan"
+date: "November 8, 2022"
+mainfont: "Times New Roman"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show code"
+    monobackgroundcolor: lightsteelblue
+    backgroundcolor: whitesmoke
+    fontcolor: steelblue
+    number-sections: true
+    toc: true
+    theme: zephyr
+editor: visual
+---
+
+## Data and Set Up
+
+```{r setup}
+#| message: false
+library(tidyverse)
+library(dplyr)
+a_names_data <- read_csv(here::here("Labs", "Lab 9", "BabyNames", "StateNames_A.csv"))
+```
+
+### Summarizing & Visualizing the Number of Allisons
+
+```{r}
+a_names_data |>   
+  pivot_wider(names_from = Gender, 
+              values_from = Count) |>
+  mutate(across(.cols = c(F, M),
+                ~ (replace_na(., 0)))) |>
+  filter(Name == 'Allison') |>
+  group_by(State) |>
+  summarize(Name, F = sum(F), M = sum(M), .groups = "rowwise") |>
+  distinct()
+
+```
+
+Filtering for female sex only and creating new data set for graphing.
+
+```{r}
+allison_f <- a_names_data |>
+  filter(Gender == 'F') |>
+  pivot_wider(names_from = Gender, 
+              values_from = Count) |>
+  mutate(F = replace_na(F, 0)) |>
+  filter(Name == 'Allison') |>
+  group_by(Year) |>
+  summarize(F = sum(F), .groups = 'rowwise') |>
+  distinct()
+```
+
+```{r}
+ggplot(data = allison_f, aes(x = Year, y = F)) +
+  geom_line(color = 'darkgreen') +
+  theme( plot.title.position = "plot",
+         plot.title = element_text(vjust = 1,
+                                   face = "italic",
+                                   family = "serif"),
+         plot.subtitle = element_text(family = 'serif',
+                                      face = 'italic'), 
+         axis.line = element_line(color = 'lightgray',
+                                  size = 1,
+                                  linetype = 'solid'),
+                  panel.grid.major = element_blank()
+         ) +
+  labs( title = "Number of babies named Allison over Time",
+        subtitle = 'in the US',
+        x = " ", y = " " ) +
+  scale_x_continuous(breaks = seq(1997, 2015, 2)) +
+  scale_y_continuous(breaks = seq(5000, 8000, 500))
+```
+
+### Modeling the Numbers
+
+```{r}
+ggplot(allison_f, aes( y = F, x = Year)) +
+  geom_smooth(method = lm, se = FALSE,
+              color = 'lightskyblue') +
+  geom_point(color = 'darkgreen',
+              alpha = 0.6) +
+  theme( plot.title.position = "plot",
+         plot.title = element_text(vjust = 1,
+                                   face = "italic",
+                                   family = "serif"),
+         plot.subtitle = element_text(family = 'serif',
+                                      face = 'italic'), 
+         axis.line = element_line(color = 'lightgray',
+                                  size = 1,
+                                  linetype = 'solid'),
+                  panel.grid.major = element_blank()
+         ) +
+  labs(title = "Regression Line of Number of babies named Allison over Time",
+        subtitle = 'in the US',
+        x = " ", y = " " ) +
+  scale_x_continuous(breaks = seq(1997, 2015, 2)) +
+  scale_y_continuous(breaks = seq(5000, 8000, 500))
+```
+
+```{r}
+al_lm <- lm(F ~ Year, allison_f)
+al_lm
+al_lm <-  broom::augment(al_lm)
+```
+
+6.  The estimated regression equation is:
+
+    Count of Female(at birth) Allisons = 209689.8 - 101.5(Year)
+
+```{r}
+ggplot(al_lm, aes(x = Year, y = .resid)
+       ) +
+  geom_point(color = "forestgreen"  ) +
+  theme( plot.title.position = "plot",
+         plot.title = element_text(vjust = 1,
+                                   face = "italic",
+                                   family = "serif"),
+         plot.subtitle = element_text(family = 'serif',
+                                      face = 'italic'), 
+         axis.line = element_line(color = 'lightgray',
+                                  size = 1,
+                                  linetype = 'solid'),
+                  panel.grid.major = element_blank()
+         ) +
+  labs(title = "Residuals of Number of babies named Allison over Time",
+        subtitle = 'in the US',
+        x = " ", y = " " ) +
+  scale_x_continuous(breaks = seq(1997, 2015, 2)) +
+  scale_y_continuous(breaks = seq(-600, 1200, 200))
+  
+```
+
+7.   The residuals, that is the actual values minus the predicted values indicate that the observed values of the number of babies being named Allison, starts off much higher than the expected value and then from 1999 to 2007 it was much below the expected value, before going back to a positive residual at 2008.
+8.  I believe this shows that your name was most popular in 1998, and significantly lost popularity from 1999 to 2007, but from 2011 to 2014 there has been a steady increase in the popularity. So I would not say the name Allison is 'uncool', though it was for a bit, it is now slowly regaining popularity.
+
+### Spelling by State
+
+```{r}
+al <- a_names_data |>
+  filter(Name == c('Allan', 'Alan', 'Allen'))
+
+al_year <- al |>
+  group_by(Year, Name) |>
+  summarize(Count = sum(Count),
+            .groups = 'rowwise') 
+
+ggplot(al_year, aes(x = Year, y = Count,
+                    color = fct_rev(reorder(Name,
+                                         Count)))) +
+  geom_line() +
+  theme( plot.title.position = "plot",
+         plot.title = element_text(vjust = 1,
+                                   face = "italic",
+                                   family = "serif"),
+         plot.subtitle = element_text(family = 'serif',
+                                      face = 'italic'), 
+         axis.line = element_line(color = 'lightgray',
+                                  size = 1,
+                                  linetype = 'solid'),
+         panel.grid.major = element_blank()
+         ) +
+  labs(title = "Number of babies named Allan, Alan and Allen over Time",
+        subtitle = 'in the US',
+        x = " ", y = " ", color = 'Name') +
+  scale_x_continuous(breaks = seq(1997, 2015, 2)) +
+  scale_y_continuous(breaks = seq(0, 1500, 250))
+```
+
+```{r}
+al_state <- 
+  a_names_data |>
+  pivot_wider(names_from = Gender, 
+              values_from = Count) |>
+  pivot_wider(names_from = Name, 
+              values_from = M) |> 
+  filter(Year == 2000, (State == 'PA'|State == 'CA')) |>
+  select(State, Year, Allan, Alan, Allen) |>
+  group_by(State, Year)|>
+  summarise(across(.cols = c(Allan, Alan, Allen), 
+                   ~sum(., na.rm = TRUE)),
+            .groups ='rowwise')
+al_state
+```
+
+```{r}
+al_state |> 
+  mutate(Tot = (Allan + Alan + Allen),
+         across(.cols = c(Allan, Alan, Allen, Tot),
+                .fns = ~ format(round((./Tot), 3
+                                      ), nsmall = 3)))
+```

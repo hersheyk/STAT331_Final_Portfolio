@@ -1,0 +1,200 @@
+---
+title: "Lab 3"
+author: "Harshini Karthikeyan"
+format: 
+  html:
+    code-fold: true
+    code-summary: "Show code"
+    monobackgroundcolor: lightsteelblue
+    backgroundcolor: whitesmoke
+    fontcolor: steelblue
+    self-contained: true
+execute:
+  message: false
+  warning: false
+editor: visual
+theme: zephyr
+---
+
+#### REVISIONS
+
+Set Up/Formatting:
+
+For the first two code chunks I added in "message = FALSE" to remove the message. I noticed the demographics code chunk had an unnecessary message pop up as well and I fixed that. Additionally, this wasn't addressed in this lab's revisions, it was in Lab 4. However, I had put read.csv here, but somehow neither of us caught it previously. I have now switched that to read_csv().
+
+1\. I did not add enough information summarizing the data set, so I have gone in and added more, regarding how data was collected and from whom.
+
+4.  I hadn't used the most efficient code to clean the data, therefore I added an across function, to make it so that I have less lines of repetitive code.
+
+# Lab 3
+
+Set Up:
+
+```{r setup}
+library(tidyverse)
+```
+
+```{r here}
+hiphop <- read_csv(here::here("Labs", "Lab 3", "hiphop.csv"))
+dim(hiphop)
+```
+
+1.  The hip-hop data set has 10752 rows and 38 columns. It is a data set used to measure how accurately individuals knew and how familiar they were with the definitions to AAE vocabulary words. They were given a self-identifying demographic questionnaire and the data set provides that information as well. This study was conducted on undergraduate students currently in classes on linguistics, sociology and music, in the University of Minnesota. There were a 168 participants from the above category in the study, and of those 166 who were not African-American were analyzed. The free-form responses of individuals were coded into a scale of 1 to 5 , one indicating less(knowledge or preference for genre) and 5 indicating greater awareness.
+
+2.  Each row is person's answer to how familiar they feel with each of the 64 words. It would be more manageable if their responses were all in the same row however.
+
+3.  Missing values were replaced with the mean. However, as this is a sample it is not fully representative of the population mean. Replacing missing values with the sample mean could shift the overall data further from the true mean and decrease the standard deviation.
+
+```{r factors}
+hiphop_clean <- hiphop |> 
+  mutate(across(.cols = c(sex, subj, ethnic),  
+                          ~as.factor(.)))
+```
+
+5.  64 unique words
+
+```{r count}
+hiphop |> 
+  distinct(word, .keep_all = TRUE) |> 
+  count()
+```
+
+```{r ethnic}
+hiphop_clean <- hiphop |> 
+  mutate(white = if_else(ethnic  == "white",
+                         "white",
+                         "not white"))
+
+```
+
+```{r demographics}
+
+hiphop_demographics <- hiphop_clean |>
+  distinct(subj, .keep_all = TRUE)
+
+#https://www.geeksforgeeks.org/get-the-summary-of-dataset-in-r-using-dply/
+#learned more about the summarize functions' arguments
+hiphop_demographics |>  
+  select(age, white, sex) |> 
+  group_by(white, sex) |> 
+  summarize(n(), mean(age), min(age), max(age))
+```
+
+7.  The age of the subjects averages around 20 years old with a minimum age of 16 years and a maximum of 41 years. The demographics heavily lean towards female, white, younger participants of the survey. There are 91 white females while there are 7 non white males in this data set.
+
+```{r age spread plot}
+
+ggplot(data = hiphop_demographics) +
+  geom_bar( mapping = aes(x = age), 
+            color = "dark blue", 
+            fill="light blue" 
+            ) +
+  labs( y = "Number of subjects", 
+        x = "Age(in years)",
+        title = "Age of the subjects")
+```
+
+```{r ethnic and sex}
+#source = https://stackoverflow.com/questions/24895575/ggplot2-bar-plot-with-two-categorical-variables
+# learned of the position argument for side-by-side bargraphs
+
+ggplot(data = hiphop_demographics) +
+  geom_bar( mapping = aes(x = white,
+                          fill = sex), 
+            position = "dodge") +
+  labs( y = "Number of subjects", 
+        x = "Ethnicity")
+```
+
+## Familiar Words
+
+```{r familiar under 20}
+under20 <- hiphop_clean |> 
+  select(age, word, familiarity)|>
+  filter(age<20) |> 
+  group_by(word) |>
+  summarize(familiarity = mean(familiarity))
+
+under20 |> slice_min(familiarity, n = 1)
+```
+
+```{r}
+under20 |> slice_max(familiarity, n = 1)
+```
+
+a.  People below the age of 20
+
+    1.  Least known word: catch the vapors
+
+    2.  Most known word: off the hook
+
+```{r non white women}
+non_white_women <- hiphop_clean |>
+  select(white, sex, word, familiarity) |>
+  filter(white =="not white", sex == "Female") |>
+  group_by(word) |>
+  summarize(familiarity = mean(familiarity))
+
+non_white_women |> slice_max(familiarity, n = 1)
+
+non_white_women |> slice_min(familiarity, n = 1)
+```
+
+a.  Non-white women
+
+    1.  Least known word was tied by four: dukey rope, plex, rollie and break someone out
+
+    2.  Most known word: feel me
+
+```{r above 30 white men}
+above_30_white_men <- hiphop_clean |>
+  select(white, sex, age, word, familiarity) |>
+  filter(white == "white", sex == "Male", age > 30) |>
+  group_by(word) |>
+  summarize(familiarity = mean(familiarity))
+
+above_30_white_men |> slice_max(familiarity, n = 1)
+
+above_30_white_men |> slice_min(familiarity, n = 1)
+```
+
+a.  White men above the age of 30
+
+    1.  Least known words(20):
+
+        1.  ay yo trip\
+            beezy\
+            break someone out\
+            catch the vapors\
+            crossroads\
+            crump\
+            dap\
+            dollar cab\
+            domino\
+            duckets
+
+        2.  face gator\
+            fetti\
+            finna\
+            ghostride\
+            good hair\
+            grip grain\
+            guap\
+            humming\
+            mail\
+            plex
+
+    2.  Most known word: 5-0
+
+## Study Subjects
+
+```{r justin bieber}
+hiphop_demographics |>
+  filter(white == "white", 
+         sex == "Male", 
+         16 < age, age < 24, 10000 < city, 
+         city< 60000) |> slice_max(bieber, n=1)
+
+```
+
+I believe person 17 is Justin Bieber because they are a white male age 18 from a city of 56, 377 people and they named 4 Justin Bieber songs on the spot. He could've forgotten one of his own songs, or pretended otherwise, but he got the most in of the individuals who fit the demographics.
