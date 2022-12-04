@@ -6,3 +6,10 @@ mainfont: "Times New Roman"
 format: docx
 editor: visual
 ---
+
+Efficiency is when we use our resources to maximize output while minimizing loss. It sounds capitalist to put it that way, but another way to express it is that it makes situations easier for us. To become more efficient is to either improve our outcome or to reduce our waste(of energy, of time, other resources, etc.). When considering statistical computing, efficiency refers to writing the most streamlined code that takes the least energy, time, and space from the computer. So, one we worked on having efficient code is by reducing repetition through writing functions. Functions are very efficient. While it may take more time or energy initially from us, the scientist, to create the function, in the long run, it is simpler to understand and is easier to run through the computer. Writing functions in Labs 7 and 8 really emphasized that for me. Lab 7 was when we first learned to write functions, and we rescaled the measurements of Blackfoot trout. It was fascinating how easily the function allowed us to manipulate a massive amount of data very easily. 
+
+Similarly, dplyr, piping was an a-ha! moment for me. When we did Practice Activity College in Week three, I was impressed by the continuous nature of piping which made it, so you did not need to re-enter the same inputs over and over. It made for very clean, easy-to-read data, that was uncluttered and simple.I think organization is an important part of efficiency, which translates well to coding. Other people, and yourself, should be able to glance over your code and easily understand what is happening, why, and in which order. Dyplr and Tidycode in general, both, play a huge role in this.
+
+\
+

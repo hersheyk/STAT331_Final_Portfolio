@@ -48,16 +48,20 @@ Lab 7 Revisions
 
 #### *Extending My Thinking*
 
-Lab 5
+TLDR(a quick summary)
 
 Challenge 2
 
-Challenge
+Challenge 4
+
+Lab 5
 
 ### Growth as a Team Member
+
+peer_review_lab_2
+
+peer_review_lab_9
 
 text_convo_excerpt_1
 
 text_convo_excerpt_2
-
-Peer Code Review for Lab 4
