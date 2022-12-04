@@ -23,11 +23,7 @@ I believe I deserve an A for this class because I have completed all the assignm
 
 **WD-6**: Lab 4 code chunk/section; semi joins
 
-**WD-7**: 
-
-**Pivot wider:** Lab 9 code chunk 2: "summarize"
-
-**Pivot longer:** Preview Activity Cereal, code chunk 1
+**WD-7**: **Pivot wider:** Lab 9 code chunk 2: "summarize"**Pivot longer:** Preview Activity Cereal, code chunk 1
 
 ### Reproducibility
 
@@ -41,17 +37,13 @@ I believe I deserve an A for this class because I have completed all the assignm
 
 **DVS**-**1**: Lab 9; Section: Summarizing & Visualizing the Number of Allisons and Section: Modeling the Numbers
 
-**DVS-2**: Lab 9; Section Summarizing & Visualizing the Number of Allisons
-
-**DVS**-**3:** Lab 9; Section Summarizing & Visualizing the Number of Allisons
+**DVS-2 & DVS**-**3**: Lab 9; Section Summarizing & Visualizing the Number of Allisons
 
 **DVS-4**: I can calculate numerical summaries of variables.
 
 **DVS-5:** Lab 3 Question 6(code chunk 6: demographics)
 
-**DVS-6:** Challenge 9, Section: Allison Table
-
-**DVS**-**7**: Challenge 9, Section: Allison Table
+**DVS-6 & DVS**-**7:** Challenge 9, Section: Allison Table
 
 ### Program Efficiency
 
@@ -69,7 +61,7 @@ I believe I deserve an A for this class because I have completed all the assignm
 
 **DSM-2:** Lab 9; Section: Modeling the Numbers, Code chunk BEFORE Question 6 and Question 6
 
-I have completed every single assignment with full honest attempts and have submitted revisions whenever they were necessary. which I believe demonstrates my commitment to continued learning. I have provided two examples of my revision work and revision reflections. I have done more than one Challenge option when given a chance for Challenge #2. Most of my rendered HTML is colorful due to my chosen YAML colors. For Lab 5, I did more than what was required, adding a graph that removes the legend, as William Chase suggested, and instead overlays the text over the graph itself. I also added a table of contents to the lab. I learned the pivot_longer() function before we discussed it in class. I have repeatedly gone above and beyond regarding my graph formatting(color, font, positioning, annotating, axis labels, etc.), as demonstrated in Lab 9, as well as my HTML layout. 
+I have completed every single assignment with full honest attempts and have submitted revisions whenever they were necessary. which I believe demonstrates my commitment to continued learning. I have provided two examples of my revision work and revision reflections. I have done more than one Challenge option when given a chance for Challenge #2. Most of my rendered HTML has chosen YAML colors. For Lab 5, I did more than what was required, adding a graph that removes the legend, as William Chase suggested, and instead overlays the text over the graph itself. I also added a table of contents to the lab. I learned the pivot_longer() function before we discussed it in class. I have repeatedly gone above and beyond regarding my graph formatting(color, font, positions, annotating, axis labels, etc.), as demonstrated in Lab 9, as well as my HTML layout. 
 
 One goal I've fulfilled, which might seem a given for most people, but can be difficult for me sometimes, is that I have gone to all but one Stat 331 class. I had a lot of difficulty doing this with classes last quarter and struggled with motivation, but I have gone to nearly every class, so I am proud of myself.  As a team member, I've grown more comfortable with my classmates and feel no hesitation in texting them if I have a question or answering others' questions. We call to work together outside of class, typically to work on labs. I have checked others' code for bugs, and they have checked mine. Often it is a very small syntax error that caused the issues. Other times we have had to turn to Google or the R database to learn more about a particular function. I have also provided thorough Peer Code reviews. As FaceTime calls are more difficult to show, I mostly included texts between different classmates and me, along with a Peer Code Review.
 

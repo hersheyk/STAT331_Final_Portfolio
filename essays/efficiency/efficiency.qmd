@@ -12,4 +12,3 @@ Efficiency is when we use our resources to maximize output while minimizing loss
 Similarly, dplyr, piping was an a-ha! moment for me. When we did Practice Activity College in Week three, I was impressed by the continuous nature of piping which made it, so you did not need to re-enter the same inputs over and over. It made for very clean, easy-to-read data, that was uncluttered and simple.I think organization is an important part of efficiency, which translates well to coding. Other people, and yourself, should be able to glance over your code and easily understand what is happening, why, and in which order. Dyplr and Tidycode in general, both, play a huge role in this.
 
 \
-
