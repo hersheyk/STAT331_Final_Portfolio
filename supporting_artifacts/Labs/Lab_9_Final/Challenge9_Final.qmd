@@ -1,7 +1,7 @@
 ---
 title: "Challenge 9"
 author: "Harshini Karthikeyan"
-date: "November 21, 2022"
+date: "December 3, 2022"
 mainfont: "Times New Roman"
 format: 
   html:
@@ -13,6 +13,10 @@ format:
     number-sections: true
     toc: true
     theme: zephyr
+    self-contained: true
+execute: 
+  warning: false
+  message: false
 editor: visual
 ---
 
