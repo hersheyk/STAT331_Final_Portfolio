@@ -1,6 +1,8 @@
 ---
 title: "Lab 2 Revisions"
 author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
 format: html
 editor: visual
 ---
@@ -11,29 +13,24 @@ I felt that Lab 2 had one of the most revisions of my labs, and involved the gre
 
 ### Scatterplot
 
-5.  Careful! Only variables go inside aes()! Hard coded values like alpha = 0.1 go outside because they are not variables.
-
-G
+5.  Careful! Only variables go inside aes()! Hard coded values like alpha = 0.1 go outside because they are not variables. **G**
 
 ### Boxplots & Density Ridges
 
 8.  Your boxplots should only have two variables, weight and species. The jittered points should be on top of the boxplots.
 
-    You've plotted a scatterplot on top of boxplots, which is not the intention of the plot.
-
-G
+    You've plotted a scatterplot on top of boxplots, which is not the intention of the plot. **G**
 
 ### Customization
 
 10. What are these species of???
 
-    Please revise this plot to reflect the changes you made earlier.
+    Please revise this plot to reflect the changes you made earlier. **G**
 
-G
-
-11. I don't see the x and y variables swapped in your plot.
-
-G
+```{=html}
+<!-- -->
+```
+11. I don't see the x and y variables swapped in your plot. **G**
 
 ## Revision Work Through:
 

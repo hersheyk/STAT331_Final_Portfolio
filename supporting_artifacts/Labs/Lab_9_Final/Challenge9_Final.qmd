@@ -1,5 +1,5 @@
 ---
-title: "Challenge 9"
+title: "Challenge 9 Final"
 author: "Harshini Karthikeyan"
 date: "December 3, 2022"
 mainfont: "Times New Roman"
@@ -29,7 +29,9 @@ library(tidyverse)
 library(dplyr)
 library(kableExtra)
 library(DT)
-a_names_data <- read_csv(here::here("Labs", "Lab 9", "BabyNames", "StateNames_A.csv"))
+a_names_data <- read_csv(here::here("supporting_artifacts",
+                                    "Labs", "Lab_9_Final",
+                                    "StateNames_A.csv"))
 ```
 
 ### Data

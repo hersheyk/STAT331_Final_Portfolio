@@ -1,0 +1,85 @@
+---
+title: "Practice Activity Military Final"
+author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
+format: 
+  html:
+    self-contained: true
+execute:
+  message: false
+  warning: false
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+library(readxl) 
+library(tidyverse)
+
+military <- read_xlsx(here::here("supporting_artifacts",
+                                    "Activities",
+                                 "Practice_Activity_Military", 
+                                 "gov_spending_per_capita.xlsx"), 
+                      sheet = "Share of Govt. spending", 
+                      skip = 6, 
+                      n_max = 192)
+
+military_clean <- military |> 
+  mutate(across(.cols = everything(), .fns = ~na_if(., "xxx")),
+         across(.cols = everything(), .fns = ~na_if(., ". .")),
+         across(.cols = "1988" : "2019", .fns = ~as.numeric(.)))
+  
+```
+
+You can add options to executable code like this
+
+cont_region
+
+```{r}
+cont_region <- read_xlsx(here::here("supporting_artifacts",
+                                    "Activities",
+                                 "Practice_Activity_Military", 
+                                 "gov_spending_per_capita.xlsx"), 
+                      sheet = "Regional totals", 
+                      skip = 14) |> 
+  filter(Region != "World total (including Iraq)", 
+         Region != "World total (excluding Iraq)")
+
+
+```
+
+military_clean
+
+```{r}
+ military_clean <- military_clean |> 
+  anti_join(cont_region, 
+                   by = c("Country" = "Region")) 
+
+```
+
+```{r}
+military_clean[5, 1]
+military_clean[53, 1]
+military_clean[80, 1]
+military_clean[160, 1]
+```
+
+```{r}
+military_vertical <-  military_clean |> 
+  pivot_longer(cols = c("1988":"2018"), 
+               names_to = "Year",
+               values_to = "Spending" )
+
+ggplot(data = military_vertical, 
+       mapping = aes(x = Spending, y = Year)) +
+  geom_boxplot()
+
+```

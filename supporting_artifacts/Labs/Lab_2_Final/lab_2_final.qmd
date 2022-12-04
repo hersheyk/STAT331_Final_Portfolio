@@ -1,6 +1,8 @@
 ---
-title: "Lab 2: Exploring Rodents with ggplot2"
+title: "Lab 2 Final: Exploring Rodents with ggplot2"
 author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
 format: 
   html:
     code-fold: true

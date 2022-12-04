@@ -1,6 +1,8 @@
 ---
-title: "Lab 3"
+title: "Lab 3 Final"
 author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
 format: 
   html:
     code-fold: true
@@ -35,7 +37,9 @@ library(tidyverse)
 ```
 
 ```{r here}
-hiphop <- read_csv(here::here("Labs", "Lab 3", "hiphop.csv"))
+hiphop <- read_csv(here::here("supporting_artifacts",
+                                    "Labs", "Lab_3_Final",
+                              "hiphop.csv"))
 dim(hiphop)
 ```
 

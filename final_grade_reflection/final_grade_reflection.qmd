@@ -11,7 +11,7 @@ I believe I deserve an A for this class because I have completed all the assignm
 
 ### Working with Data
 
-**WD-1:** Lab 4 second intro code chunk(labeled 'here') 
+**WD-1:** Lab 4 second intro code chunk(labeled 'here') + Practice Activity Military load- in chunk
 
 **WD-2:** Lab 3 Question 6(code chunk 6: demographics)
 
