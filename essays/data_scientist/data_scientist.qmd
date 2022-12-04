@@ -1,0 +1,9 @@
+---
+title: "My Growth as a Data Scientist"
+format: html
+editor: visual
+---
+
+This quarter I've grown as a student in data science, in becoming more comfortable with coding and experimenting. The less rigid structure of the Ungrading system allowed for me to feel comfortable with doing more than needed to for Labs, especially when I'm not sure how it will be received. I'm less worried about whether what I'm attempting to code is incorrect and more interested in how the code works. This allowed for a far more in-depth understanding of the code. I feel the greatest example of this was in Lab 5, the section addressing a Time-Series plot. I wanted to challenge myself and had extra time, so I attempted a variation of the plot where the legend was layered directly on the graph instead of on the sides.
+
+I understood how the annotations and colors worked, as I had practiced variations of ggplot(), and understood the factor reorder method, to order the colors, as well as the genus names. One aspect I needed to learn was how to simplify the locations of the annotations. I googled, but a lot of the methods looked far beyond me. As a result, I had to hardcode the vertical and horizontal locations into vectors and use those vectors in the annotation function. While in the past, this would've been enough for me to have deleted the entire attempt or prevented me from even trying, especially as I would have had stricter grading, I tried submitting what I had anyway, and it went well. This helped me grow as a data scientist because you often have to keep attempting new things as a scientist, which was difficult for me in the past. So that assignment, and others similar to it, allowed me to facilitate an interest in trying different methods and facilitated a deeper understanding of the mechanics behind the code we learned in class.
