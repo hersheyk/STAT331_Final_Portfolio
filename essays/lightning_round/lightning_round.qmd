@@ -1,6 +1,9 @@
 ---
 title: "Lightning Round Essays"
-format: html
+author: "Harshini Karthikeyan"
+date: "December 3, 2022"
+mainfont: "Times New Roman"
+format: docx
 editor: visual
 ---
 
