@@ -1,18 +1,76 @@
 ---
-title: "Week 6 Grade Reflection"
+title: "Final Grade Reflection"
 author: "Harshini Karthikeyan"
 format: docx
 editor: visual
 ---
 
-I have demonstrated an understanding of learning targets WD-1, WD-2, WD-3, which are all in Lab 2. PE-1 is demonstrated in Lab 2, question 3. DVS-4, DVS-5, DVS-6 are shown in Lab three, specifically, question 6. WD-4, WD-5, WD-6 are all demonstrated in Lab 4, question 7. R-1 and R-2 are shown in lab 4 and in following labs. DVS-1, DVS-2, DVS-3 are shown in Lab 5, Section 2.
+I believe I deserve an A for this class because I have completed all the assignments and received full credit while also consistently going beyond assigned requirements. I have demonstrated an understanding of a vast majority of learning targets in Labs and classwork. 
 
-I have submitted revisions whenever they were necessary, to the best of my ability which I believe demonstrates my commitment to continued learning. I have done more than one Challenge option when given a chance for Challenge #2. Most of my rendered html is colorful, due to my chosen YAML colors. For Lab 5 I did more than what was required, adding a graph in which removes the legend, as William Chase suggested and instead overlays the text over the graph itself. I also added a table of contents to the lab. I learned the pivot_longer() function before we went over it in class.
+### Working with Data
 
-One goal I've fulfilled, which might seem a given for most people, but can be difficult for me sometimes, is that I have gone to all but one Stat 331 class. I had a lot of difficulty doing this with classes last quarter and struggled with motivation, but I have gone to nearly every class, so I am proud of myself.  As a team member, I've grown more comfortable with my classmates and feel no hesitation in texting them if I have a question or answering others' questions. We call to do work together outside of class, typically to work on labs.  I have checked others' code for bugs and they have checked mine. Often it is a very small syntax error that caused the issues. Other times we have had to turn to Google or the R database to learn more about a particular function.
+**WD-1:** Lab 4 second intro code chunk(labeled \'here\') 
 
-Regarding the timelines for projects, I often submit them after canvas due dates but before grading deadlines. They usually are only a couple of hours late. I appreciate the soft deadlines as I can better organize my time concerning my other classwork, which have stricter deadlines. I make sure to review and read the preview coursework before class. While sometimes it is after 8 am, it is often submitted before 12. However, I believe I submitted two of the Preview Activities relatively late.
+**WD-2:** Lab 3 Question 6(code chunk 6: demographics)
 
-Thus far, I deserve an A minus because while I am doing well independently, I should be doing better regarding putting more effort into submitting assignments precisely on time.
+**WD-3:** Practice Activity College Part 2
 
-\
+**WD-4:** Practice Activity College Part 1 
+
+**WD-5**: Preview Activity Cereal code chunks; right join and full join. 
+
+**WD-6**: Lab 4 code chunk/section; semi joins
+
+**WD-7**: 
+
+**Pivot wider:** Lab 9 code chunk 2: \"summarize\"
+
+**Pivot longer:** Preview Activity Cereal, code chunk 1
+
+### Reproducibility
+
+**R-1**: Lab 9, yaml, code chunk: set up. It is in an r project labeled \"STAT331_Final_Portfolio\".
+
+**R-2:** Lab 2 numbers 7 & 8; it is actually shown throughout as it is formatting, but two examples are those questions and the sections surrounding them. 
+
+**R-3**: Lab 3, Section: Familiar Words, usage of slice_min() and slice_max()
+
+### Data Visualization & Summarization
+
+**DVS**-**1**: Lab 9; Section: Summarizing & Visualizing the Number of Allisons and Section: Modeling the Numbers
+
+**DVS-2**: Lab 9; Section Summarizing & Visualizing the Number of Allisons
+
+**DVS**-**3:** Lab 9; Section Summarizing & Visualizing the Number of Allisons
+
+**DVS-4**: I can calculate numerical summaries of variables.
+
+**DVS-5:** Lab 3 Question 6(code chunk 6: demographics)
+
+**DVS-6:** Challenge 9, Section: Allison Table
+
+**DVS**-**7**: Challenge 9, Section: Allison Table
+
+### Program Efficiency
+
+**PE-1**:Practice Activity College; Part One; Code chunk; combine
+
+**PE-2**: Lab 7, Part Two, Task 3 and 5
+
+**PE-3**: Lab 7, Part One, Task 1 and 2; when I use the across() function.
+
+**PE-4**: Practice Activity College; Part One; Code chunk; combine
+
+### Data Simulation & Modeling
+
+**DSM-1:** Lab 9; Section: Modeling the Numbers, Code Chunk after Question 6
+
+**DSM-2:** Lab 9; Section: Modeling the Numbers, Code chunk BEFORE Question 6 and Question 6
+
+I have completed every single assignment with full honest attempts and have submitted revisions whenever they were necessary. which I believe demonstrates my commitment to continued learning. I have provided two examples of my revision work and revision reflections. I have done more than one Challenge option when given a chance for Challenge #2. Most of my rendered HTML is colorful due to my chosen YAML colors. For Lab 5, I did more than what was required, adding a graph that removes the legend, as William Chase suggested, and instead overlays the text over the graph itself. I also added a table of contents to the lab. I learned the pivot_longer() function before we discussed it in class. I have repeatedly gone above and beyond regarding my graph formatting(color, font, positioning, annotating, axis labels, etc.), as demonstrated in Lab 9, as well as my HTML layout. 
+
+One goal I've fulfilled, which might seem a given for most people, but can be difficult for me sometimes, is that I have gone to all but one Stat 331 class. I had a lot of difficulty doing this with classes last quarter and struggled with motivation, but I have gone to nearly every class, so I am proud of myself.  As a team member, I've grown more comfortable with my classmates and feel no hesitation in texting them if I have a question or answering others' questions. We call to work together outside of class, typically to work on labs. I have checked others' code for bugs, and they have checked mine. Often it is a very small syntax error that caused the issues. Other times we have had to turn to Google or the R database to learn more about a particular function. I have also provided thorough Peer Code reviews. As FaceTime calls are more difficult to show, I mostly included texts between different classmates and me, along with a Peer Code Review.
+
+Regarding project timelines, I often submit them after canvas due dates but before grading deadlines. They usually are only a couple of hours late. If they are beyond more strict deadlines, I do my best to communicate as such in advance. I appreciate the soft deadlines as I can better organize my time concerning my other classwork, which has stricter deadlines. I make sure to review and read the preview coursework before class. While sometimes it is after 8 am, it is often submitted before 12. However, I believe I submitted two of the Preview Activities relatively late. 
+
+Overall, I believe the work I have done for this class best fits the category of an A. 
